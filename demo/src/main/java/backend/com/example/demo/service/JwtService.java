@@ -15,9 +15,9 @@ public class JwtService {
     // Generate JWT token
     public String generateToken(String email) {
         return Jwts.builder()
-                .setSubject(email)
+                .subject(email)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 24 hours
+                .setExpiration(new Date(System.currentTimeMillis() + 86400000*4)) // 24 hours
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                 .compact();
     }

@@ -29,13 +29,13 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public String authenticateUser(UserDto userDto){
+    public String authenticateUser(UserDto userDto) {
         User user = userRepository.findByEmail(userDto.getEmail());
-        if (user == null){
+        if (user == null) {
             throw new RuntimeException("User not found");
         }
 
-        if (!passwordEncoder.matches(userDto.getPassword(), user.getPassword())){
+        if (!passwordEncoder.matches(userDto.getPassword(), user.getPassword())) {
             throw new RuntimeException("Invalid password");
         }
 
