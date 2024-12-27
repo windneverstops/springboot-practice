@@ -12,7 +12,6 @@ const AppContext = createContext<ContextTypes | undefined>(undefined);
 
 const AppProvider = ({ children }: AppProviderProps) => {
   const [isAuthenticated] = useState<boolean>(false);
-  debugger;
 
   return (
     <AppContext.Provider value={{ isAuthenticated }}>

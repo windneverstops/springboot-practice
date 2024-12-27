@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/auth")
 public class SignUpController {
 
     private final UserService userService;

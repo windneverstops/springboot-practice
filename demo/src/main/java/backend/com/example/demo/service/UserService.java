@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder = null;
     private final JwtService jwtService;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
+    public UserService(UserRepository userRepository,  JwtService jwtService) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
+
         this.jwtService = jwtService;
     }
 
@@ -39,6 +39,6 @@ public class UserService {
             throw new RuntimeException("Invalid password");
         }
 
-        return jwtService.generateToken(user.getEmail());
+        return jwtService.generateToken(user.getId());
     }
 }
